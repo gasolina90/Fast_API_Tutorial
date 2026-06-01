@@ -17,12 +17,17 @@
 
 2. Activate the virtual environment
     * Do this EVERY TIME you start a new terminal to work on project, navigate to project directory within Windows Powershell
+
+        **FOR THE FIRST TIME**
         ```PowerShell
         Windows PowerShell
 
         .venv\Scripts\Activate.ps1
         ```
-    * Every time you install a new package in that environment, **activate the environment again**
+    * Every time you install a new package in that environment, **activate the environment again** with this command:
+        ```PowerShell
+        activate
+        ```
 
 3. Check the Virtual Environment is active, navigate to project directory, if not there already:
     * Open new terminal > Launch profile > PowerShell
@@ -65,3 +70,9 @@
         pip install "fastapi[standard]"
         ```
     * Installing them from requirements.txt
+
+7. Deactivate the Virtual Environment
+    * Deactivate the venv when done working with:
+        ```Git Bash
+        deactivate
+        ```
