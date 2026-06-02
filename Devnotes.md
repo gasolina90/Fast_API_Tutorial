@@ -5,7 +5,7 @@
         ```bash
         python -m venv .venv
         ```
-    * What it means:
+        * What it means:
         
         `python`: use the program called python
         
@@ -41,13 +41,13 @@
 
 4. Upgrade PIP
     * Many package installation errors ocur because of an outdated PIP
-        ```Git Bash
+        ```Bash
         python -m pip install --upgrade pip
         ```
 
 5. Add .gitignore
     * Add a .gitignore to exclude everything in your `.venv` directory from Git
-        ```Git Bash
+        ```Bash
         echo "*" > .venv/.gitignore
         ```
 
@@ -66,13 +66,29 @@
 6. Install Packages
     * ONLY after activating the environment
     * Installing them directly if time is very limited
-        ```Git Bash
+        ```Bash
         pip install "fastapi[standard]"
         ```
     * Installing them from requirements.txt
 
 7. Deactivate the Virtual Environment
     * Deactivate the venv when done working with:
-        ```Git Bash
+        ```Bash
         deactivate
         ```
+
+## Configuring the app entrypoint:
+1. Recommended to configure the `entrypoint` in a `.toml` file for when the project grows/scales up.
+    * Create `.toml` file in the root folder of your project (`Fast_API_Tutorial`)
+    * Write in it:
+        ```TOML
+        [tool.fastapi]
+        entrypoint = "main:app"
+        ```
+        * Only if the .toml is within another directory, such as backend, then write `entrypoint = backend.main:app`
+
+    * Otherwise, for small projects you can configure the entrypoint in the command while in the .venv with:
+        ```Bash
+        fastapi dev --entrypoint main:app
+        ```
+        * You MUST ALWAYS remember to pass the correct path/entrypoint every time you call the `fastapi` command if using this technique
